@@ -19,3 +19,4 @@ Route::get('/contact/{name}', function ($name) {
      echo "je suis ".$name;
 });
 Route::get('/posts/','PagesController@posts');
+Route::get('/posts/{id}','PagesController@post');
