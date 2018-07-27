@@ -36,14 +36,14 @@
            	{{csrf_field()}}
            	<div class="form-group">
            		<label for="title">Title</label>
-           		<input type="text" name="title" class="form-control" id="title" >
-           		
-           	</div>
-           	<div class="form-group">
-           		<label for="body">Body</label>
-           		<input type="text" name="body" class="form-control" id="body">
+           		<input type="text" value="{{Request::old('title')}}" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : ''}} " id="title" >
            	</div>
 
+           	<div class="form-group">
+           		<label for="body">Body</label>
+           		<input type="text" value="{{Request::old('body')}}" name="body" class="form-control {{ $errors->has('body') ? 'is-invalid' : ''}} " id="body">
+           	</div>
+        
            	<div class="form-group">
            		<label for="url">image</label>
            		<input type="file" name="url" id="url">
@@ -51,10 +51,14 @@
            
            	<button type="submit" class="btn btn-primary">Add post</button>
            	</form>
+           	<br>
            	<div>
            		@foreach($errors->all () as $error)
-           		{{$error}} <br>
-           		@endforeach
+           		
+           		<div class="alert alert-danger">
+           		 <li>{{$error}}</li>
+           	    </div>
+           	    @endforeach
            	</div>
 
 

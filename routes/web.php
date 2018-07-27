@@ -19,5 +19,6 @@ Route::get('/contact/{name}', function ($name) {
      echo "je suis ".$name;
 });
 Route::get('/posts/','PagesController@posts');
-Route::get('/posts/{id}','PagesController@post');
+Route::get('/posts/{post}','PagesController@post');
 Route::post('/posts/store','PagesController@store');
+Route::post('/posts/{post}/store','CommentsController@store');

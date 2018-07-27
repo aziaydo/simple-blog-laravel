@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post; //ingestion du model app/post.php
-use DB; //declaration de la base de donnee
+use DB; //declaration de la base de donnee facultatif*
 class PagesController extends Controller
 {
 	public function posts() {
@@ -14,8 +14,8 @@ class PagesController extends Controller
 		return view('content.posts',compact('posts'));
 	}
 	//list id from table posts and show in 'views/content/posts.blade.php'
-	public function post($id) {
-		$post = DB::table('posts')->find($id);
+	public function post(Post $post) {
+		//$post = DB::table('posts')->find($id);
 
 		return view('content.post',compact('post'));
 	}
@@ -25,7 +25,7 @@ class PagesController extends Controller
 		$this->validate(request(),[
 			'title'=>'required',
 			'body'=>'required',
-			'url'=>'image|mimes:jpg,jpeg,gif,png|max:2048'
+			'url'=>'required|image|mimes:jpg,jpeg,gif,png|max:2048'
 		]);
 		$img_name= time() . '.' . $request->url->getClientOriginalExtension();
 		$post = new post;
