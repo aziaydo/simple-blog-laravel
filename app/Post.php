@@ -14,5 +14,11 @@ class Post extends Model
 
 
     }
+     public function category(){
+     	//relation one to many : table post apartien a plusieur category
+    	return $this->belongsTo(Category::class);
+
+
+    }
 }
 

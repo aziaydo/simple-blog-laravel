@@ -40,4 +40,16 @@ class PagesController extends Controller
 		return redirect('/posts');
 	}
 
+
+
+public function category($name) {
+
+	$cat = DB::table('categories')->where('name',$name)->value('id');
+	$posts = DB::table('posts')->where('category_id',$cat)->get();
+
+
+		return view('content.category',compact('posts'));
+	}
+
+
 }

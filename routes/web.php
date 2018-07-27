@@ -22,3 +22,4 @@ Route::get('/posts/','PagesController@posts');
 Route::get('/posts/{post}','PagesController@post');
 Route::post('/posts/store','PagesController@store');
 Route::post('/posts/{post}/store','CommentsController@store');
+Route::get('/category/{name}','PagesController@category');

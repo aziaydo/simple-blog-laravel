@@ -12,7 +12,7 @@
           @foreach ($posts as $post)
           <div class="card mb-4">
           	@if($post->url)
-            <img class="card-img-top" src="upload/{{$post->url}}" alt="Card image cap" style="max-height: 450px;">
+            <img class="card-img-top" src="../upload/{{$post->url}}" alt="Card image cap" style="max-height: 450px;">
             @endif
             <div class="card-body">
             	
@@ -21,12 +21,12 @@
               
 
               <p class="card-text">{{$post->body}}</p>
-              <a href="posts/{{$post->id}}" class="btn btn-primary">Read More &rarr;</a>
+              <a href="{{$post->id}}" class="btn btn-primary">Read More &rarr;</a>
               
             </div>
             <div class="card-footer text-muted">
-              Posted on {{ $post->created_at->format('F Y h:i:s A') }}
-              <a href="#">Start Bootstrap</a>
+              Posted on {{ $post->created_at->format('F Y h:i:s A')}} - <strong>cat</strong>
+              <a href="../category/{{ $post->category->name }}">{{ $post->category->name }}</a>
             </div>
           </div>
            @endforeach

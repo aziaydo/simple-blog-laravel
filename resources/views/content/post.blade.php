@@ -30,12 +30,13 @@
             <p>{{$comment->body}}</p>
             @endforeach
           </div>
+          <br>
           <form method="POST" action="/posts/{{$post->id}}/store" >
             {{csrf_field()}}
 
             <div class="form-group">
-              <label for="body">Comment</label>
-              <input type="text" value="{{Request::old('body')}}" name="body" class="form-control {{ $errors->has('body') ? 'is-invalid' : ''}} " id="body">
+              
+              <input placeholder="write something" type="text" value="{{Request::old('body')}}" name="body" class="form-control {{ $errors->has('body') ? 'is-invalid' : ''}} " id="body">
             </div> 
 
             <button type="submit" class="btn btn-info">Add Comment</button>
