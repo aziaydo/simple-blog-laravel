@@ -49,6 +49,21 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
+            @if(Auth::check())
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Welcome: {{Auth::user()->name}}</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            @else
+            <li class="nav-item active">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            @endif
           </ul>
         </div>
       </div>
@@ -90,13 +105,13 @@
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">Web Design</a>
+                      <a href="#">jquery</a>
                     </li>
                     <li>
-                      <a href="#">HTML</a>
+                      <a href="#">ajax</a>
                     </li>
                     <li>
-                      <a href="#">Freebies</a>
+                      <a href="#">php</a>
                     </li>
                   </ul>
                 </div>

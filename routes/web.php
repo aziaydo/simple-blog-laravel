@@ -23,3 +23,15 @@ Route::get('/posts/{post}','PagesController@post');
 Route::post('/posts/store','PagesController@store');
 Route::post('/posts/{post}/store','CommentsController@store');
 Route::get('/category/{name}','PagesController@category');
+//Auth
+Route::get('/register','RegistrationController@create');
+Route::post('/register','RegistrationController@store');
+
+
+Route::get('view-records','PagesController@caty');
+
+
+Route::get('/login','SessionController@create');
+Route::post('/login','SessionController@store');
+
+Route::get('/logout','SessionController@destroy');

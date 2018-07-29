@@ -21,7 +21,7 @@
               
 
               <p class="card-text">{{$post->body}}</p>
-              <a href="{{$post->id}}" class="btn btn-primary">Read More &rarr;</a>
+              <a href="posts/{{$post->id}}" class="btn btn-primary">Read More &rarr;</a>
               
             </div>
             <div class="card-footer text-muted">

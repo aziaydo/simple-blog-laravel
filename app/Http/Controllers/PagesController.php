@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post; //ingestion du model app/post.php
+use App\Post;//ingestion du model app/post.php
+use App\Category; 
 use DB; //declaration de la base de donnee facultatif*
 class PagesController extends Controller
 {
@@ -13,6 +14,7 @@ class PagesController extends Controller
 
 		return view('content.posts',compact('posts'));
 	}
+	
 	//list id from table posts and show in 'views/content/posts.blade.php'
 	public function post(Post $post) {
 		//$post = DB::table('posts')->find($id);
@@ -51,5 +53,15 @@ public function category($name) {
 		return view('content.category',compact('posts'));
 	}
 
+  public function index(){
+      $users = DB::select('select * from users');
+      return view('s',['users'=>$users]);
+   }
+
+  public function caty(){
+      $catys = Category::all();
+      return view('s',['catys'=>$catys]);
+   }
+   
 
 }
