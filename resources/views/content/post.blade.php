@@ -31,6 +31,12 @@
             @endforeach
           </div>
           <br>
+          @if($stop_comment == 1)
+          
+          <h3>Comments are Currently Closed !!</h3>
+
+          @else
+
           <form method="POST" action="/posts/{{$post->id}}/store" >
             {{csrf_field()}}
 
@@ -41,6 +47,7 @@
 
             <button type="submit" class="btn btn-info">Add Comment</button>
           </form>
+          @endif
           <br>
             <div>
               @foreach($errors->all () as $error)

@@ -17,8 +17,19 @@ class Post extends Model
      public function category(){
      	//relation one to many : table post apartien a plusieur category
     	return $this->belongsTo(Category::class);
+    }
+
+     public function likes(){
+     	
+    	//return $this->hasMany(User::class);
+        return $this->hasMany(Like::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
 
 
     }
+    
 }
 

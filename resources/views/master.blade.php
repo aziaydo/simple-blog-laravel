@@ -9,8 +9,10 @@
     <meta name="author" content="">
 
     <title>Blog Home - Start Bootstrap Template</title>
+    
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Bootstrap core CSS -->
     <link href="https://blackrockdigital.github.io/startbootstrap-blog-home/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -44,12 +46,15 @@
               <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="statistics">statistics</a>
             </li>
             @if(Auth::check())
+            @if(Auth::user()->hasRole('admin'))
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">Admin</a>
+            </li>
+            @endif
+            
             <li class="nav-item active">
               <a class="nav-link" href="#">Welcome: {{Auth::user()->name}}</a>
             </li>
@@ -159,6 +164,14 @@
     <!-- Bootstrap core JavaScript -->
     <script src="https://blackrockdigital.github.io/startbootstrap-blog-home/vendor/jquery/jquery.min.js"></script>
     <script src="https://blackrockdigital.github.io/startbootstrap-blog-home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url('js/likes.js') }}"></script>
+    <script type="text/javascript">
+      var url = "{{ route('like') }}";
+      var url_dis = "{{ route('dislike') }}";
+      var token = "{{ Session::token() }}";
+    </script>
+
 
   </body>
 

@@ -4,6 +4,10 @@
 @section('content') 
 <h1 class="my-4">Page Heading<small>Secondary Text</small></h1><br><hr>        
 <div class="col-md-8">
+  @if($stop_register == 1)
+  <h3>sorry register no avilable</h3>
+  @else
+  
   <form method="POST" action="/register">
    {{csrf_field()}}
   <div class="form-group">
@@ -20,5 +24,6 @@
   </div>
   <button type="submit" class="btn btn-primary">Sing UP</button>
 </form>
+@endif
 </div>
 @stop
